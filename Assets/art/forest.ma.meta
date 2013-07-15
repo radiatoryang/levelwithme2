@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: 31f2d5974a8d51c468c92c554594ae7a
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ForestBush1
+    100004: ForestBush2
+    100006: ForestCampfire
+    100008: ForestCampTent
+    100010: ForestLandMassCliff
+    100012: ForestLandMassPlane
+    100014: ForestRock1
+    100016: ForestTree1
+    100018: ForestTree2
+    100020: ForestTree3
+    100022: ForestTree4
+    100024: AurieaLake
+    100026: WaterPlane
+    100028: WaterPlaneLow
+    400000: //RootNode
+    400002: ForestBush1
+    400004: ForestBush2
+    400006: ForestCampfire
+    400008: ForestCampTent
+    400010: ForestLandMassCliff
+    400012: ForestLandMassPlane
+    400014: ForestRock1
+    400016: ForestTree1
+    400018: ForestTree2
+    400020: ForestTree3
+    400022: ForestTree4
+    400024: AurieaLake
+    400026: WaterPlane
+    400028: WaterPlaneLow
+    2300000: ForestBush1
+    2300002: ForestBush2
+    2300004: ForestCampfire
+    2300006: ForestCampTent
+    2300008: ForestLandMassCliff
+    2300010: ForestLandMassPlane
+    2300012: ForestRock1
+    2300014: ForestTree1
+    2300016: ForestTree2
+    2300018: ForestTree3
+    2300020: ForestTree4
+    2300022: AurieaLake
+    2300024: WaterPlane
+    2300026: WaterPlaneLow
+    3300000: ForestBush1
+    3300002: ForestBush2
+    3300004: ForestCampfire
+    3300006: ForestCampTent
+    3300008: ForestLandMassCliff
+    3300010: ForestLandMassPlane
+    3300012: ForestRock1
+    3300014: ForestTree1
+    3300016: ForestTree2
+    3300018: ForestTree3
+    3300020: ForestTree4
+    3300022: AurieaLake
+    3300024: WaterPlane
+    3300026: WaterPlaneLow
+    4300000: ForestTree1
+    4300002: ForestTree2
+    4300004: ForestTree3
+    4300006: ForestLandMassPlane
+    4300008: ForestLandMassCliff
+    4300010: ForestRock1
+    4300012: ForestTree4
+    4300014: ForestBush1
+    4300016: ForestBush2
+    4300018: ForestCampfire
+    4300020: ForestCampTent
+    4300022: AurieaLake
+    4300024: WaterPlane
+    4300026: WaterPlaneLow
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
