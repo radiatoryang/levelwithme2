@@ -18,6 +18,7 @@ ModelImporter:
     100024: AurieaLake
     100026: WaterPlane
     100028: WaterPlaneLow
+    100030: ForestCampfire1
     400000: //RootNode
     400002: ForestBush1
     400004: ForestBush2
@@ -33,6 +34,7 @@ ModelImporter:
     400024: AurieaLake
     400026: WaterPlane
     400028: WaterPlaneLow
+    400030: ForestCampfire1
     2300000: ForestBush1
     2300002: ForestBush2
     2300004: ForestCampfire
@@ -47,6 +49,7 @@ ModelImporter:
     2300022: AurieaLake
     2300024: WaterPlane
     2300026: WaterPlaneLow
+    2300028: ForestCampfire1
     3300000: ForestBush1
     3300002: ForestBush2
     3300004: ForestCampfire
@@ -61,6 +64,7 @@ ModelImporter:
     3300022: AurieaLake
     3300024: WaterPlane
     3300026: WaterPlaneLow
+    3300028: ForestCampfire1
     4300000: ForestTree1
     4300002: ForestTree2
     4300004: ForestTree3
@@ -75,6 +79,7 @@ ModelImporter:
     4300022: AurieaLake
     4300024: WaterPlane
     4300026: WaterPlaneLow
+    4300028: ForestCampfire1
     9500000: //RootNode
   materials:
     importMaterials: 1

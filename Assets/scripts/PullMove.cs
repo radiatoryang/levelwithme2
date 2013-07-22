@@ -58,7 +58,11 @@ public class PullMove : MonoBehaviour {
 
     void FixedUpdate() {
         if ( currentGrip != null ) {
-            rigidbody.AddForce( pullStrength * 100f, ForceMode.Acceleration );
+            if ( currentGrip.tag == "Swing" ) {
+                rigidbody.AddForce( pullStrength * 400f, ForceMode.Acceleration );
+            } else {
+                rigidbody.AddForce( pullStrength * 100f, ForceMode.Acceleration );
+            }
         }
     }
 }
