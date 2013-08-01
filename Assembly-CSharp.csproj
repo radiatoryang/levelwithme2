@@ -46,12 +46,18 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\FirstPerson.cs" />
      <Compile Include="Assets\scripts\GlowFlash.cs" />
+     <Compile Include="Assets\scripts\PullLever.cs" />
      <Compile Include="Assets\scripts\PullMove.cs" />
+     <Compile Include="Assets\scripts\RadioTower.cs" />
+     <Compile Include="Assets\scripts\WIPNote.cs" />
      <Compile Include="Assets\scripts\WaterBuoyant.cs" />
      <Compile Include="Assets\scripts\WaterDistort.cs" />
+     <Compile Include="Assets\scripts\WaterFog.cs" />
+     <Compile Include="Assets\scripts\WaterGlowDistance.cs" />
      <Compile Include="Assets\scripts\WaterPhysics.cs" />
      <None Include="Assets\shaders\Particle Add-NoFog.shader" />
      <None Include="Assets\shaders\Illumin-Diffuse-NoFog.shader" />
+     <None Include="Assets\shaders\3D_text_occluded.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

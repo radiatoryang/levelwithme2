@@ -4,12 +4,13 @@ using System.Collections;
 public class PullMove : MonoBehaviour {
 
     FirstPerson fPerson;
+    Vector3 gripPoint;
     Vector3 gripDirection;
     public Collider currentGrip;
     Vector3 pullStrength;
 
-    float surfaceGripRange = 6f;
-    float underwaterGripRange = 11f;
+    float surfaceGripRange = 6.5f;
+    float underwaterGripRange = 14f;
     public LayerMask gripMask;
     public GUIText gripCursor;
 
@@ -25,17 +26,18 @@ public class PullMove : MonoBehaviour {
             gripRange = underwaterGripRange;
         }
 
-        if ( Input.GetMouseButtonUp( 0 ) || (currentGrip != null && Vector3.Distance(currentGrip.transform.position, transform.position) > gripRange) ) {
+        if ( Input.GetMouseButtonUp( 0 ) || (currentGrip != null && Vector3.Distance(gripPoint, transform.position) > gripRange) ) {
             currentGrip = null;
+            gripPoint = Vector3.zero;
             gripDirection = Vector3.zero;
             gripCursor.text = "X";
         } else {
-            gripCursor.text = "";
+            gripCursor.text = ".";
         }
 
         if ( currentGrip != null ) {
-            pullStrength = -gripDirection * Input.GetAxis( "Mouse Y" ) * ( 1f - (Vector3.Distance(currentGrip.transform.position, transform.position) / gripRange) );
-            gripCursor.text = ".";
+            pullStrength = -gripDirection * Input.GetAxis( "Mouse Y" ) * ( 1f - (Vector3.Distance(gripPoint, transform.position) / gripRange) );
+            gripCursor.text = "[O]";
         } else {
             RaycastHit rayHit = new RaycastHit();
             // Ray ray = Camera.main.ScreenPointToRay( Input.mousePosition );
@@ -45,6 +47,7 @@ public class PullMove : MonoBehaviour {
                 gripCursor.text = "O";
                 if ( Input.GetMouseButtonDown( 0 ) ) {
                     currentGrip = rayHit.collider;
+                    gripPoint = rayHit.point;
                     // gripDirection = ( ( rayHit.point - transform.position ).normalized - rayHit.normal) / 2f;
                     if ( fPerson.isSwimming ) {
                         gripDirection = (rayHit.point - transform.position).normalized;
@@ -57,11 +60,15 @@ public class PullMove : MonoBehaviour {
 	}
 
     void FixedUpdate() {
-        if ( currentGrip != null ) {
-            if ( currentGrip.tag == "Swing" ) {
-                rigidbody.AddForce( pullStrength * 400f, ForceMode.Acceleration );
-            } else {
-                rigidbody.AddForce( pullStrength * 100f, ForceMode.Acceleration );
+        if ( currentGrip != null) {
+            if ( currentGrip.tag != "Lever" ) {
+                if ( currentGrip.tag == "Swing" ) {
+                    rigidbody.AddForce( pullStrength * 400f, ForceMode.Acceleration );
+                } else {
+                    rigidbody.AddForce( pullStrength * 100f, ForceMode.Acceleration );
+                }
+            } else { // LEVER
+                currentGrip.GetComponent<PullLever>().Pull( pullStrength );
             }
         }
     }
