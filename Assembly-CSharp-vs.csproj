@@ -44,8 +44,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Pixelplacement\ScreenFade\Example\Scripts\Tester.cs" />
+     <Compile Include="Assets\Pixelplacement\ScreenFade\ScreenFade.cs" />
+     <Compile Include="Assets\scripts\AlexPeriscope.cs" />
+     <Compile Include="Assets\scripts\EndFade.cs" />
      <Compile Include="Assets\scripts\FirstPerson.cs" />
      <Compile Include="Assets\scripts\GlowFlash.cs" />
+     <Compile Include="Assets\scripts\PlanetTurn.cs" />
      <Compile Include="Assets\scripts\PullLever.cs" />
      <Compile Include="Assets\scripts\PullMove.cs" />
      <Compile Include="Assets\scripts\RadioTower.cs" />
@@ -55,7 +60,9 @@
      <Compile Include="Assets\scripts\WaterFog.cs" />
      <Compile Include="Assets\scripts\WaterGlowDistance.cs" />
      <Compile Include="Assets\scripts\WaterPhysics.cs" />
+     <Compile Include="Assets\scripts\Wisp.cs" />
      <None Include="Assets\shaders\Particle Add-NoFog.shader" />
+     <None Include="Assets\Pixelplacement\ScreenFade\Example\Shaders\RimDiffuse.shader" />
      <None Include="Assets\shaders\Illumin-Diffuse-NoFog.shader" />
      <None Include="Assets\shaders\3D_text_occluded.shader" />
   </ItemGroup>

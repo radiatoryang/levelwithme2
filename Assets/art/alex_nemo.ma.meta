@@ -8,23 +8,28 @@ ModelImporter:
     100004: AlexFloor
     100006: AlexPeriscope
     100008: AlexWall
+    100010: AlexPeriscopeCollision
     400000: //RootNode
     400002: AlexChamber
     400004: AlexFloor
     400006: AlexPeriscope
     400008: AlexWall
+    400010: AlexPeriscopeCollision
     2300000: AlexChamber
     2300002: AlexFloor
     2300004: AlexPeriscope
     2300006: AlexWall
+    2300008: AlexPeriscopeCollision
     3300000: AlexChamber
     3300002: AlexFloor
     3300004: AlexPeriscope
     3300006: AlexWall
+    3300008: AlexPeriscopeCollision
     4300000: AlexFloor
     4300002: AlexWall
     4300004: AlexChamber
     4300006: AlexPeriscope
+    4300008: AlexPeriscopeCollision
     9500000: //RootNode
   materials:
     importMaterials: 1

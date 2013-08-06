@@ -68,7 +68,7 @@ public class PullMove : MonoBehaviour {
                     rigidbody.AddForce( pullStrength * 100f, ForceMode.Acceleration );
                 }
             } else { // LEVER
-                currentGrip.GetComponent<PullLever>().Pull( pullStrength );
+                currentGrip.GetComponent<PullLever>().Pull( pullStrength + Vector3.one * .01f );
             }
         }
     }

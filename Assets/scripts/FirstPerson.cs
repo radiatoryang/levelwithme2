@@ -13,12 +13,15 @@ public class FirstPerson : MonoBehaviour {
     Camera cam;
     public AudioClip underwaterSound;
 
+    PullMove pullMove;
+
     [HideInInspector]
     public bool isSwimming = false;
 
 	// Use this for initialization
 	void Awake () {
         cam = GetComponentInChildren<Camera>();
+        pullMove = GetComponent<PullMove>();
 	}
 	
 	// Update is called once per frame
@@ -33,19 +36,23 @@ public class FirstPerson : MonoBehaviour {
 
         float v = Input.GetAxis( "Vertical" );
         float h = Input.GetAxis( "Horizontal" );
+
+        // hack to make player always walk forward while pulling
+        if ( Mathf.Abs( v ) < 0.25f && pullMove.currentGrip != null && pullMove.currentGrip.tag != "Lever" )
+            v = 1f;
+
         if ( isSwimming ) {
             moveVector = v * cam.transform.forward + h * transform.right;
-            if ( audio.clip != isSwimming ) {
-                audio.clip = underwaterSound;
+            if ( !audio.isPlaying ) {
                 audio.Play();
             }
         } else {
             moveVector = v * transform.forward + h * transform.right;
             if ( audio.isPlaying ) {
                 audio.Stop();
-                audio.clip = null;
             }
         }
+            
 
         float realSensitivity = GetComponent<PullMove>().currentGrip != null ? sensitivity * 0.01f : sensitivity;
 
@@ -57,6 +64,7 @@ public class FirstPerson : MonoBehaviour {
 
     void FixedUpdate() {
         float realMoveSpeed = isSwimming ? moveSpeed * 4f : moveSpeed;
+
         if ( moveVector == Vector3.zero && !isSwimming) {
             rigidbody.AddForce( -rigidbody.velocity * 1.5f, ForceMode.Impulse );
         } else {

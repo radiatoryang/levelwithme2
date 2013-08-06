@@ -5,6 +5,9 @@ public class WaterPhysics : MonoBehaviour {
 
     FirstPerson player;
     PullMove pullMove;
+    //public bool pushPlayerUp = true;
+    public bool ladderHack = false;
+    // public float minSpeedToSplashSound = 5f;
 
     void OnTriggerEnter(Collider c) {
         if ( c.GetComponent<FirstPerson>() ) {
@@ -24,7 +27,11 @@ public class WaterPhysics : MonoBehaviour {
 
     void FixedUpdate() {
         if ( player != null && pullMove.currentGrip == null) {
-            player.rigidbody.AddForce( Physics.gravity * Mathf.Clamp(player.transform.position.y / 50f, -1.81f, 0f), ForceMode.Acceleration );
+            if ( !ladderHack ) {
+                player.rigidbody.AddForce( Physics.gravity * Mathf.Clamp( player.transform.position.y / 50f, -1.81f, -0.5f ), ForceMode.Acceleration );
+            } else {
+                player.rigidbody.AddForce( -Physics.gravity, ForceMode.Acceleration );
+            }
         }
     }
 }
