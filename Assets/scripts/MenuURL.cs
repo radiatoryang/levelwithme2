@@ -27,16 +27,18 @@ public class MenuURL : MonoBehaviour {
 
     void OnGUI() {
         const float width = 256f;
-        const float height = 48f;
-        const float padding = 8f;
+        const float height = 72f;
+        const float padding = 16f;
         if ( currentURL != null ) {
             Vector2 screenPos = Event.current.mousePosition;
             Vector2 guiPos = GUIUtility.ScreenToGUIPoint(screenPos) + new Vector2( 16f, 4f);
+            if ( guiPos.x > Screen.width - width )
+                guiPos.x -= width;
             GUI.color = new Color( 1f, 1f, 1f, 0.1f );
-            GUI.DrawTexture( new Rect( guiPos.x - padding, guiPos.y, width + padding * 2f, height + padding ), texture );
+            GUI.DrawTexture( new Rect( guiPos.x - padding, guiPos.y - padding * 0.5f, width + padding * 2f, height ), texture );
             GUI.color = new Color( 0.5f, 0.2f, 0.2f, 1f );
-            string label = currentURL.isArticle ? "click to read interview:" : "click to open in web browser:";
-            GUI.Label( new Rect( guiPos.x, guiPos.y, width, height ), "<b><size=10>" + label + "</size></b>\n<size=12>" + currentURL.url + "</size>" );
+            string label = currentURL.isArticle ? "click to read this interview:" : "click to open in browser:";
+            GUI.Label( new Rect( guiPos.x, guiPos.y, width, height ), "<b><size=16>" + label + "</size></b>\n<size=12>" + currentURL.url + "</size>" );
         }
     }
 

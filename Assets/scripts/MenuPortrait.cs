@@ -10,6 +10,8 @@ public class MenuPortrait : MonoBehaviour {
     public string portraitText;
     public Texture2D portraitTexture;
     public Texture2D bgTexture;
+    [Multiline]
+    public string pullQuote;
 
     public static MenuPortrait current;
     const float lerpSpeed = 2f;
@@ -18,6 +20,7 @@ public class MenuPortrait : MonoBehaviour {
 	void Start () {
         text.text = portraitText;
         portrait.material.mainTexture = portraitTexture;
+        portrait.transform.parent.localScale = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -27,8 +30,9 @@ public class MenuPortrait : MonoBehaviour {
             portrait.material.color = Color.Lerp( portrait.material.color, new Color( 1f, 1f, 1f, 1f ), Time.deltaTime * lerpSpeed );
             portrait.transform.parent.localScale = Vector3.Lerp( portrait.transform.parent.localScale, new Vector3( 1.6f, 1.6f, 1.6f ), Time.deltaTime * lerpSpeed );
         } else {
-            text.color = Color.Lerp( text.color, new Color( 0.5f, 0.5f, 0.5f, 0.6f ), Time.deltaTime * lerpSpeed );
-            portrait.material.color = Color.Lerp( portrait.material.color, new Color( 1f, 1f, 1f, 0.3f ), Time.deltaTime * lerpSpeed );
+            float change = MenuPortrait.current != null ? 0f : 0.8f;
+            text.color = Color.Lerp( text.color, new Color( 0f, 0f, 0f, 0.2f + change * Mathf.Abs(Mathf.Sin(Time.time * 1.5f)) ), Time.deltaTime * lerpSpeed );
+            portrait.material.color = Color.Lerp( portrait.material.color, new Color( 1f, 1f, 1f, 0.2f + change * Mathf.Abs(Mathf.Sin(Time.time * 1.5f)) ), Time.deltaTime * lerpSpeed );
             portrait.transform.parent.localScale = Vector3.Lerp( portrait.transform.parent.localScale, new Vector3( 0.75f, 0.75f, 0.75f ), Time.deltaTime * lerpSpeed );
         }
 	}

@@ -30,7 +30,7 @@ public class FirstPerson : MonoBehaviour {
             Screen.lockCursor = true;
         }
 
-        if ( Input.GetKeyDown( KeyCode.Escape ) ) {
+        if ( Input.GetKeyDown( KeyCode.Escape ) || Input.GetKeyDown( KeyCode.Tab) ) {
             Screen.lockCursor = false;
         }
 
