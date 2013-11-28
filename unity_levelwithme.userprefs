@@ -1,0 +1,18 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\FirstPerson.cs">
+    <Files>
+      <File FileName="Assets\scripts\MenuURL.cs" Line="37" Column="19" />
+      <File FileName="Assets\shaders\SpecularToon.shader" Line="230" Column="4" />
+      <File FileName="Assets\scripts\FirstPerson.cs" Line="13" Column="16" />
+      <File FileName="Assets\scripts\PullMove.cs" Line="61" Column="40" />
+      <File FileName="Assets\scripts\WarpTeleport.cs" Line="27" Column="44" />
+      <File FileName="Assets\scripts\WaterPhysics.cs" Line="12" Column="1" />
+      <File FileName="Assets\scripts\WaterFog.cs" Line="13" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

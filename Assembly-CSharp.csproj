@@ -12,13 +12,14 @@
 	<AssemblyName>Assembly-CSharp</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
+	<BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
 	<DebugSymbols>true</DebugSymbols>
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_1_5;UNITY_4_1;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_TEXTUREID_MAP;ENABLE_AUDIO_FMOD;ENABLE_MONO;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_GENERICS;ENABLE_SUBSTANCE;INCLUDE_WP8SUPPORT;ENABLE_MOVIES;ENABLE_WWW;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;INCLUDE_METROSUPPORT;RENDER_SOFTWARE_CURSOR;ENABLE_NETWORK;ENABLE_PHYSICS;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_2D_PHYSICS;ENABLE_SHADOWS;ENABLE_AUDIO;ENABLE_NAVMESH_CARVING;ENABLE_DUCK_TYPING;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;UNITY_4_3_0;UNITY_4_3;ENABLE_PROFILER;UNITY_EDITOR;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -36,6 +37,7 @@
 	<Reference Include="System" />
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
+	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
 	  <HintPath>D:/Program Files (x86)/Unity4/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
@@ -47,24 +49,40 @@
      <Compile Include="Assets\Pixelplacement\ScreenFade\Example\Scripts\Tester.cs" />
      <Compile Include="Assets\Pixelplacement\ScreenFade\ScreenFade.cs" />
      <Compile Include="Assets\scripts\AlexPeriscope.cs" />
+     <Compile Include="Assets\scripts\CameraBreathe.cs" />
      <Compile Include="Assets\scripts\EndFade.cs" />
      <Compile Include="Assets\scripts\FirstPerson.cs" />
      <Compile Include="Assets\scripts\GlowFlash.cs" />
+     <Compile Include="Assets\scripts\MenuBG.cs" />
+     <Compile Include="Assets\scripts\MenuBegin.cs" />
+     <Compile Include="Assets\scripts\MenuPortrait.cs" />
+     <Compile Include="Assets\scripts\MenuURL.cs" />
      <Compile Include="Assets\scripts\PlanetTurn.cs" />
      <Compile Include="Assets\scripts\PullLever.cs" />
      <Compile Include="Assets\scripts\PullMove.cs" />
      <Compile Include="Assets\scripts\RadioTower.cs" />
      <Compile Include="Assets\scripts\WIPNote.cs" />
+     <Compile Include="Assets\scripts\WarpTeleport.cs" />
+     <Compile Include="Assets\scripts\WarpTunnel.cs" />
      <Compile Include="Assets\scripts\WaterBuoyant.cs" />
      <Compile Include="Assets\scripts\WaterDistort.cs" />
      <Compile Include="Assets\scripts\WaterFog.cs" />
      <Compile Include="Assets\scripts\WaterGlowDistance.cs" />
      <Compile Include="Assets\scripts\WaterPhysics.cs" />
      <Compile Include="Assets\scripts\Wisp.cs" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\shaders\Unlit-Normal-NoCull.shader" />
      <None Include="Assets\shaders\Particle Add-NoFog.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Pixelplacement\ScreenFade\Example\Shaders\RimDiffuse.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-LightedOutline.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Lighted.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutlineNoFog.shader" />
      <None Include="Assets\shaders\Illumin-Diffuse-NoFog.shader" />
+     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicNoFOg.shader" />
+     <None Include="Assets\shaders\Particle Add-NoCull.shader" />
      <None Include="Assets\shaders\3D_text_occluded.shader" />
+     <None Include="Assets\shaders\SpecularToon.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

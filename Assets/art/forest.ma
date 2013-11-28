@@ -1,6 +1,6 @@
 //Maya ASCII 2012 scene
 //Name: forest.ma
-//Last modified: Wed, Jul 31, 2013 12:07:50 AM
+//Last modified: Fri, Nov 22, 2013 07:02:37 PM
 //Codeset: 1252
 requires maya "2012";
 currentUnit -l centimeter -a degree -t film;
@@ -12,13 +12,13 @@ fileInfo "osv" "Microsoft Windows 7 Home Premium Edition, 64-bit Windows 7 Servi
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -56.228703794165831 726.79380311716091 154.64077090416004 ;
-	setAttr ".r" -type "double3" 99.328047602690333 -154.59999999985857 -179.99999999999949 ;
+	setAttr ".t" -type "double3" -36.503482422942412 90.158450328699061 73.671360372046848 ;
+	setAttr ".r" -type "double3" 132.92804760268916 -152.19999999985839 -179.99999999999915 ;
 createNode camera -s -n "perspShape" -p "persp";
 	setAttr -k off ".v" no;
 	setAttr ".pze" yes;
 	setAttr ".fl" 34.999999999999986;
-	setAttr ".coi" 1102.211978273094;
+	setAttr ".coi" 411.60918908693043;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
