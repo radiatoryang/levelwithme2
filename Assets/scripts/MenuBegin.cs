@@ -14,6 +14,7 @@ public class MenuBegin : MonoBehaviour {
 	void Start () {
         timeStart = Time.time;
         basePos = transform.position;
+		Screen.lockCursor = false;
 	}
 	
 	// Update is called once per frame

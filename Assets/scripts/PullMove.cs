@@ -9,15 +9,27 @@ public class PullMove : MonoBehaviour {
     public Collider currentGrip;
     Vector3 pullStrength;
 
-    float surfaceGripRange = 6.5f;
+	public float gripRangeNormalized { get { 
+			if (currentGrip != null) {
+				return Mathf.Clamp (1f - (Vector3.Distance(gripPoint, transform.position) / surfaceGripRange), 0f, 1f);
+			} else {
+				return 0f;
+			}
+		}
+	}
+	float surfaceGripRange = 6.5f;
     float underwaterGripRange = 14f;
     public LayerMask gripMask;
     public GUIText gripCursor;
 	public GUITexture gripCrosshair;
 	public Texture2D[] gripTex;
 
+	float time = 0f;
+	float realTime { get { return Time.time - time;} }
+
 	// Use this for initialization
 	void Start () {
+		time = Time.time;
         fPerson = GetComponent<FirstPerson>();
 	}
 	
@@ -32,16 +44,16 @@ public class PullMove : MonoBehaviour {
             currentGrip = null;
             gripPoint = Vector3.zero;
             gripDirection = Vector3.zero;
-            gripCursor.text = "X";
+            gripCursor.text = "";
 			gripCrosshair.texture = gripTex[0];
         } else {
-            gripCursor.text = ".";
+            gripCursor.text = "";
 			gripCrosshair.texture = gripTex[0];
         }
 
         if ( currentGrip != null ) {
             pullStrength = -gripDirection * Input.GetAxis( "Mouse Y" ) * ( 1f - (Vector3.Distance(gripPoint, transform.position) / gripRange) );
-            gripCursor.text = "[O]";
+            CursorText ();
 			gripCrosshair.texture = gripTex[2];
 			gripCrosshair.color = Color.white;
 			gripCrosshair.transform.localScale = Vector3.zero;
@@ -59,7 +71,7 @@ public class PullMove : MonoBehaviour {
             Ray ray = new Ray( Camera.main.transform.position, Camera.main.transform.forward );
 
             if ( Physics.Raycast( ray, out rayHit, gripRange, gripMask ) ) {
-                gripCursor.text = "O";
+				CursorText ();
 				gripCrosshair.texture = gripTex[1];
 				// gripCrosshair.color = Color.white * ( 1f + Mathf.Sin (Time.time * 16f) ) * 0.5f;
 				gripCrosshair.transform.localScale = Vector3.one * Mathf.Abs (Mathf.Sin (Time.time * 5f) * 0.005f );
@@ -77,6 +89,14 @@ public class PullMove : MonoBehaviour {
 				gripCrosshair.color = Color.white;
 			}
         }
+	}
+
+	void CursorText () {
+		if ( realTime < 90f) {
+			gripCursor.text = "click + drag down";
+		} else {
+			gripCursor.text = "";
+		}
 	}
 
     void FixedUpdate() {

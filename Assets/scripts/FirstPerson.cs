@@ -12,7 +12,7 @@ public class FirstPerson : MonoBehaviour {
     float rotY;
 	[HideInInspector]
     public Camera cam;
-    public AudioClip underwaterSound;
+    // public AudioClip underwaterSound;
 
     PullMove pullMove;
 
@@ -22,14 +22,19 @@ public class FirstPerson : MonoBehaviour {
 	[HideInInspector]
 	public bool canMove = true;
 
+	bool grounded = false;
+
 	// Use this for initialization
 	void Awake () {
         cam = GetComponentInChildren<Camera>();
         pullMove = GetComponent<PullMove>();
+		Screen.lockCursor = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		grounded = Physics.Raycast ( transform.position, -transform.up, 1.4f);
+
         if ( Input.GetMouseButtonDown( 0 ) ) {
             Screen.lockCursor = true;
         }
@@ -45,31 +50,55 @@ public class FirstPerson : MonoBehaviour {
 		v = 0f;
 		h = 0f;
 
-        // hack to make player always walk forward while pulling
-        if ( Mathf.Abs( v ) < 0.25f && pullMove.currentGrip != null && pullMove.currentGrip.tag != "Lever" )
-            v = 1f;
-		
-		const float crawlSpeed = 3f;
-		if( Input.GetKey(KeyCode.W) && Mathf.Sin (Time.time * crawlSpeed) < 0f) {
-			//moveVector = transform.forward;
-			v = 1f;
-			cam.transform.localPosition = new Vector3( 0f, 0.25f, 0f) + Vector3.up * 0.06f * Mathf.Sin (Time.time * crawlSpeed);
+		if (grounded || isSwimming) {
+			const float crawlSpeed = 3f;
+			if( Input.GetKey(KeyCode.W) && Mathf.Sin (Time.time * crawlSpeed) < 0f) {
+				//moveVector = transform.forward;
+				v = 1f;
+				audio.loop = false;
+				cam.transform.localPosition = new Vector3( 0f, 0.25f, 0f) + Vector3.up * 0.12f * Mathf.Sin (Time.time * crawlSpeed);
+				if ( (!audio.isPlaying || audio.volume < 0.2f) && Mathf.Sin (Time.time * crawlSpeed) < -0.8f) {
+					audio.volume = 0.2f;
+					audio.Play ();
+				}
+			} else if (pullMove.currentGrip != null && pullMove.currentGrip.tag != "Lever") {
+				cam.transform.localPosition = Vector3.Lerp ( cam.transform.localPosition, new Vector3( 0f, 0.25f, 0f) + Vector3.up * -0.5f * pullMove.gripRangeNormalized, Time.deltaTime * 3f);
+				if ( Mathf.Abs (Input.GetAxis("Mouse Y")) > 0.1f ) {
+					v = 1f;
+					if (!audio.loop) {
+						audio.loop = true;
+						audio.Play ();
+					}
+					audio.volume = Mathf.Lerp ( audio.volume, 0.4f * Mathf.Abs (Input.GetAxis ("Mouse Y")), Time.deltaTime * 3f);
+				}
+			} else {
+				audio.volume = Mathf.Lerp ( audio.volume, 0f, Time.deltaTime * 3f);
+				if ( audio.volume < 0.01f ) {
+					audio.Stop ();
+					audio.loop = false;
+				}
+
+				cam.transform.localPosition = Vector3.Lerp ( cam.transform.localPosition, new Vector3( 0f, 0.25f, 0f), Time.deltaTime * 3f);
+			}
+		} else {
+			audio.Stop ();
+			audio.loop = false;
+			cam.transform.localPosition = Vector3.Lerp ( cam.transform.localPosition, new Vector3( 0f, 0.25f, 0f), Time.deltaTime * 3f);
 		}
 
-        if ( isSwimming ) {
+		
+		if ( isSwimming ) {
             moveVector = v * cam.transform.forward + h * transform.right;
-            if ( !audio.isPlaying ) {
-                audio.Play();
-            }
+//            if ( !audio.isPlaying ) {
+//                audio.Play();
+//            }
         } else {
             moveVector = v * transform.forward + h * transform.right;
-            if ( audio.isPlaying ) {
-                audio.Stop();
-            }
+//            if ( audio.isPlaying ) {
+//                audio.Stop();
+//            }
         }
-
-
-
+		
         float realSensitivity = GetComponent<PullMove>().currentGrip != null ? sensitivity * 0.01f : sensitivity;
 
         rotY += Input.GetAxis( "Mouse Y" ) * Time.deltaTime * realSensitivity * (invertY ? 1f : -1f);
