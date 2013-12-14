@@ -5,4 +5,4 @@ This is the repository for Level With Me (cohort 2), an interview series at Rock
 
 The code and scene construction is quite messy... you've been warned.
 
-All code and art files are under the MIT License. Redroom.wav and Whoosh.wav belong to Liz Ryerson ( https://twitter.com/ellaguro ) and are used with permission.
+All code and art files are under the MIT License. Redroom.wav and Whoosh.wav belong to Liz Ryerson ( https://twitter.com/ellaguro ) and are used with permission. Many of the other sounds are made from samples at freesound.org
